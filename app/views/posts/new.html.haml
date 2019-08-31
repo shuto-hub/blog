@@ -1,0 +1,25 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    %link{:href => "/docs/4.0/assets/img/favicons/favicon.ico", :rel => "icon"}/
+    %title Floating labels example for Bootstrap
+    %link{:href => "https://getbootstrap.com/docs/4.0/examples/floating-labels/", :rel => "canonical"}/
+    / Bootstrap core CSS
+    %link{:href => "../../dist/css/bootstrap.min.css", :rel => "stylesheet"}/
+    / Custom styles for this template
+    %link{:href => "floating-labels.css", :rel => "stylesheet"}/
+  %body.bg-dark
+    .container.justify-content-between 
+      %p.display-1.mt-5.text-warning バトルフォーム
+    .container-fluid.w-50.mt-5.mt-5
+      = form_for (@posts) do |f|
+        = f.label :title, "タイトル"
+        = f.text_field :title ,class: 'form-control bg-secondary'
+        = f.label :text, "内容"
+        = f.text_area :text ,class: 'form-control bg-secondary'
+        = f.submit class:'btn-block btn bg-warning text-danger',value: 'バトル送信'

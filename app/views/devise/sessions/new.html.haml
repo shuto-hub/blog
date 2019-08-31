@@ -1,0 +1,20 @@
+#account-page
+%link#bootstrap-css{:href => "//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css", :rel => "stylesheet"}/
+%script{:src => "//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"}
+%script{:src => "//code.jquery.com/jquery-1.11.1.min.js"}
+/ ---- Include the above in your HEAD tag --------
+%link{:href => "http://fonts.googleapis.com/css?family=Raleway:400,200", :rel => "stylesheet", :type => "text/css"}/
+.container
+  .row.login_box
+    .col-md-12.col-xs-12{:align => "center"}
+      %h3 Log in
+    .col-md-12.col-xs-12.login_control
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .control
+          .label Email Address
+          = f.email_field :email, autofocus: true,class:"form-control"
+        .control
+          .label Password
+          = f.password_field :password, autocomplete: "off",class:"form-control"
+        %div{:align => "center"}
+          = f.submit "Log in", class: 'btn btn-orange'
