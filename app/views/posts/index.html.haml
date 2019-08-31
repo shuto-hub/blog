@@ -1,0 +1,64 @@
+!!!
+%html{:lang => "ja"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    %link{:href => "/docs/4.0/assets/img/favicons/favicon.ico", :rel => "icon"}/
+    %title Album example for Bootstrap
+    %link{:href => "https://getbootstrap.com/docs/4.0/examples/album/", :rel => "canonical"}/
+    / Bootstrap core CSS
+    %link{:href => "../../dist/css/bootstrap.min.css", :rel => "stylesheet"}/
+    / Custom styles for this template
+    %link{:href => "album.css", :rel => "stylesheet"}/
+    / Bootstrap4
+    %script{:crossorigin => "anonymous", :integrity => "sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm", :src => "https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"}
+    /Masonry
+    %script{:src => "https://unpkg.com/masonry-layout@4.2.1/dist/masonry.pkgd.min.js"}
+  %body.bg-light
+    %header
+      .navbar.navbar-dark.bg-dark.box-shadow
+        .container.d-flex.justify-content-between
+          %a.navbar-brand.d-flex.align-items-center{:href => "#"}
+            %svg.mr-2{:fill => "none", :height => "20", :stroke => "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", :viewbox => "0 0 24 24", :width => "20", :xmlns => "http://www.w3.org/2000/svg"}
+              = image_tag 'dog.png', size: "50x50", alt: "test"
+            %strong TEST BLOG
+          %button.navbar-toggler{"aria-controls" => "navbarHeader", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarHeader", "data-toggle" => "collapse", :type => "button"}
+            %span.navbar-toggler-icon
+      #navbarHeader.collapse.bg-dark
+        .container
+          .row
+            %ul.list-unstyled
+              - if user_signed_in?
+                %li
+                  = link_to "Log out", destroy_user_session_path, method: :delete, class: 'btn'
+                %li
+                  = link_to "Post", posts_new_path, method: :get, class: 'btn'
+              - else
+                %li
+                  = link_to "Log in", new_user_session_path, method: :get, class: 'btn'
+                %li
+                  = link_to "Registeration", new_user_registration_path, method: :get, class: 'btn'
+    %main{:role => "main"}
+      %section
+      .container
+        .card-columns.pt-5
+          =render partial: "post"
+      = paginate @posts
+    %footer.text-light
+      .container
+        %p.float-right
+          %a.text-light{:href => "#"} move to top
+        %p using example from © Bootstrap
+    /
+      Bootstrap core JavaScript
+      \==================================================
+    / Placed at the end of the document so the pages load faster
+    %script{:crossorigin => "anonymous", :integrity => "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN", :src => "https://code.jquery.com/jquery-3.2.1.slim.min.js"}
+    :javascript
+      window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+    %script{:src => "../../assets/js/vendor/popper.min.js"}
+    %script{:src => "../../dist/js/bootstrap.min.js"}
+    %script{:src => "../../assets/js/vendor/holder.min.js"}

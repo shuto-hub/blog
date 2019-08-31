@@ -1,0 +1,12 @@
+-@posts.each do |post|
+  .card
+    .card-block.border-dark
+      .card-header.text-dark
+        =post.title
+      .card-body.text-muted
+        =post.text
+      - if user_signed_in? && current_user.id == post.user_id
+        %button.btn.bg-secondary
+          = link_to 'edit', "/posts/#{post.id}/edit", method: :get
+        %button.btn.bg-secondary
+          = link_to 'delete', "/posts/#{post.id}", method: :delete
