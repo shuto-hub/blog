@@ -17,6 +17,7 @@ a:link {
 body {
   background: url("top.jpg") no-repeat center center;
   background-size: cover;
+  height: 100vh;
 }
 
 .row.Masonry-2 {
@@ -207,3 +208,36 @@ body {
       width: 200px;
       height: 200px;
   }
+
+  @font-face {
+    font-family: "8bit";
+    src: font-url('misaki_gothic_2nd.ttf') ;
+    color: #FFF;
+  }
+
+  .blackboard {
+    position: relative;
+    margin: 0 auto 1.5rem;
+    padding: 1.6rem 1rem;
+    font-size: 1.2rem;
+    color: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 0 0 0 4px #fff inset;
+    background-color: rgba(0,0,0,0.9);
+  }
+
+  .retro {
+    font-family: '8bit';
+    font-size:20px;
+  }
+
+  .retro-yellow {
+    font-family: '8bit';
+    font-size:20px;
+    color: yellow;
+  }
+
+  .sentaku:hover {
+    background-color: rgb(95, 95, 95);
+    }

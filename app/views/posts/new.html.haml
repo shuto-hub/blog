@@ -1,25 +1,19 @@
-!!!
-%html{:lang => "en"}
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:charset => "utf-8"}/
-    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
-    %meta{:content => "", :name => "description"}/
-    %meta{:content => "", :name => "author"}/
-    %link{:href => "/docs/4.0/assets/img/favicons/favicon.ico", :rel => "icon"}/
-    %title Floating labels example for Bootstrap
-    %link{:href => "https://getbootstrap.com/docs/4.0/examples/floating-labels/", :rel => "canonical"}/
-    / Bootstrap core CSS
-    %link{:href => "../../dist/css/bootstrap.min.css", :rel => "stylesheet"}/
-    / Custom styles for this template
-    %link{:href => "floating-labels.css", :rel => "stylesheet"}/
-  %body.bg-dark
-    .container.justify-content-between 
-      %p.display-1.mt-5.text-warning バトルフォーム
-    .container-fluid.w-50.mt-5.mt-5
+%link#bootstrap-css{:href => "//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css", :rel => "stylesheet"}/
+%script{:src => "//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"}
+%script{:src => "//code.jquery.com/jquery-1.11.1.min.js"}
+/ ---- Include the above in your HEAD tag --------
+%link{:href => "http://fonts.googleapis.com/css?family=Raleway:400,200", :rel => "stylesheet", :type => "text/css"}/
+.container
+  .row.login_box
+    .col-md-12.col-xs-12{:align => "center"}
+      %h3 Post new
+    .col-md-12.col-xs-12.login_control
       = form_for (@posts) do |f|
-        = f.label :title, "タイトル"
-        = f.text_field :title ,class: 'form-control bg-secondary'
-        = f.label :text, "内容"
-        = f.text_area :text ,class: 'form-control bg-secondary'
-        = f.submit class:'btn-block btn bg-warning text-danger',value: 'バトル送信'
+        .control
+          .label Title
+          = f.text_field :title ,class: 'form-control bg-secondary',class:"form-control"
+        .control
+          .label Text
+          = f.text_area :text ,class: 'form-control bg-secondary',class:"form-control"
+        %div{:align => "center"}
+          = f.submit "Post", class: 'btn btn-orange'

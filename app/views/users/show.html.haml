@@ -1,9 +1,5 @@
-.contents.row
-  %p
-    = @name
-    の投稿一覧
-  - @posts.each do |post|
-    .content_post{:style => "background-image: url(#{tweet.image});"}
-      = simple_format(post.text)
-      %span.name= post.name
-  = paginate(@posts)
+.contents
+  %p.retro だれと？
+  -@users.each do |user|
+    .blackboard.retro
+      = link_to user.name, "/users/#{user.id}/battle", method: :get, class: 'retro'

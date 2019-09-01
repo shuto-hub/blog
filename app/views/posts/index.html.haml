@@ -36,6 +36,8 @@
                   = link_to "Log out", destroy_user_session_path, method: :delete, class: 'btn'
                 %li
                   = link_to "Post", posts_new_path, method: :get, class: 'btn'
+                %li
+                  = link_to "たたかう", "/users/#{current_user.id}", method: :get, class: 'btn retro'
               - else
                 %li
                   = link_to "Log in", new_user_session_path, method: :get, class: 'btn'
