@@ -1,0 +1,21 @@
+.container.retro
+  - hero = current_user.name
+  - enemyhp = @user.hp
+  - herohp = current_user.hp
+  - enemy = @user.name 
+  .blackboard.retro
+    #point.retro
+  .blackboard.retro
+    #epoint.retro
+  .blackboard.retro
+    #result.retro
+    .n
+    #eresult.retro-yellow
+    .n
+    #plusresult.retro
+  .blackboard.retro
+    ="#{enemy} が あらわれた！"
+    .n
+    ="どうする？"
+    .n
+    %p.battlestart.retro.sentaku こうげき

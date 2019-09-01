@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @users = User.all
     @name = current_user.name
     @level = current_user.level
     @hp = current_user.hp
@@ -19,7 +20,11 @@ class UsersController < ApplicationController
   end
 
   def battle
-    
+    @user = User.find(params[:user_id])
+    respond_to do |format|
+      format.html
+      format.json 
+    end
   end
 
   private
