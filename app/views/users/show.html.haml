@@ -1,5 +1,6 @@
 .contents
   %p.retro だれと？
   -@users.each do |user|
-    .blackboard.retro
-      = link_to user.name, "/users/#{user.id}/battle", method: :get, class: 'retro'
+    - unless user == current_user
+      .blackboard.retro
+        = link_to user.name, "/users/#{user.id}/battle", method: :get, class: 'retro sentaku'
